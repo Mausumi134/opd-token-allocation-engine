@@ -1,0 +1,991 @@
+{
+	"info": {
+		"_postman_id": "opd-token-allocation-engine",
+		"name": "OPD Token Allocation Engine",
+		"description": "Complete test scenarios for OPD Token Allocation Engine API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"status\": \"OK\",\n    \"message\": \"OPD Token Allocation Engine is running\",\n    \"timestamp\": \"2024-01-15T10:30:00.000Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "2. Add Doctor - General Medicine",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"DOC001\",\n    \"name\": \"Dr. Sarah Johnson\",\n    \"specialization\": \"General Medicine\",\n    \"workingHours\": {\n        \"start\": \"09:00\",\n        \"end\": \"17:00\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/doctors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"doctors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"DOC001\",\n    \"name\": \"Dr. Sarah Johnson\",\n    \"specialization\": \"General Medicine\",\n    \"workingHours\": {\n        \"start\": \"09:00\",\n        \"end\": \"17:00\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/doctors",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Doctor added successfully\",\n    \"doctor\": {\n        \"id\": \"DOC001\",\n        \"name\": \"Dr. Sarah Johnson\",\n        \"specialization\": \"General Medicine\",\n        \"workingHours\": {\n            \"start\": \"09:00\",\n            \"end\": \"17:00\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "3. Add Doctor - Cardiology",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"DOC002\",\n    \"name\": \"Dr. Michael Chen\",\n    \"specialization\": \"Cardiology\",\n    \"workingHours\": {\n        \"start\": \"10:00\",\n        \"end\": \"16:00\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/doctors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"doctors"
+					]
+				}
+			}
+		},
+		{
+			"name": "4. Add Doctor - Pediatrics",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"DOC003\",\n    \"name\": \"Dr. Priya Sharma\",\n    \"specialization\": \"Pediatrics\",\n    \"workingHours\": {\n        \"start\": \"08:00\",\n        \"end\": \"18:00\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/doctors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"doctors"
+					]
+				}
+			}
+		},
+		{
+			"name": "5. Get All Doctors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/doctors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"doctors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/doctors",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"doctors\": [\n        {\n            \"id\": \"DOC001\",\n            \"name\": \"Dr. Sarah Johnson\",\n            \"specialization\": \"General Medicine\",\n            \"workingHours\": {\n                \"start\": \"09:00\",\n                \"end\": \"17:00\"\n            }\n        },\n        {\n            \"id\": \"DOC002\",\n            \"name\": \"Dr. Michael Chen\",\n            \"specialization\": \"Cardiology\",\n            \"workingHours\": {\n                \"start\": \"10:00\",\n                \"end\": \"16:00\"\n            }\n        },\n        {\n            \"id\": \"DOC003\",\n            \"name\": \"Dr. Priya Sharma\",\n            \"specialization\": \"Pediatrics\",\n            \"workingHours\": {\n                \"start\": \"08:00\",\n                \"end\": \"18:00\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "6. Allocate Token - Online Booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P001\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"online\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patientId\": \"P001\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"online\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tokens/allocate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"allocate"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"token-uuid-123\",\n        \"patientId\": \"P001\",\n        \"doctorId\": \"DOC001\",\n        \"slotTime\": \"10:00\",\n        \"source\": \"online\",\n        \"priority\": 4,\n        \"status\": \"allocated\",\n        \"createdAt\": \"2024-01-15T10:30:00.000Z\"\n    },\n    \"message\": \"Token allocated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "7. Allocate Token - Priority Patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P002\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"priority\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response - Bumps Lower Priority",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patientId\": \"P002\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"priority\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tokens/allocate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"allocate"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"token-uuid-456\",\n        \"patientId\": \"P002\",\n        \"doctorId\": \"DOC001\",\n        \"slotTime\": \"10:00\",\n        \"source\": \"priority\",\n        \"priority\": 8,\n        \"status\": \"allocated\",\n        \"createdAt\": \"2024-01-15T10:35:00.000Z\"\n    },\n    \"message\": \"Token allocated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "8. Allocate Token - Walk-in",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P003\",\n    \"doctorId\": \"DOC002\",\n    \"preferredTime\": \"11:00\",\n    \"source\": \"walkin\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			}
+		},
+		{
+			"name": "9. Allocate Token - Follow-up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P004\",\n    \"doctorId\": \"DOC003\",\n    \"preferredTime\": \"15:00\",\n    \"source\": \"followup\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			}
+		},
+		{
+			"name": "10. Emergency Token Insertion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P005\",\n    \"doctorId\": \"DOC001\",\n    \"urgentTime\": \"10:00\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/emergency",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"emergency"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response - Emergency Allocated",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patientId\": \"P005\",\n    \"doctorId\": \"DOC001\",\n    \"urgentTime\": \"10:00\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tokens/emergency",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"emergency"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"token-uuid-789\",\n        \"patientId\": \"P005\",\n        \"doctorId\": \"DOC001\",\n        \"slotTime\": \"10:00\",\n        \"source\": \"emergency\",\n        \"priority\": 10,\n        \"status\": \"allocated\",\n        \"createdAt\": \"2024-01-15T10:40:00.000Z\"\n    },\n    \"message\": \"Emergency token allocated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "11. Get Doctor Schedule - DOC001",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/doctors/DOC001/schedule",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"DOC001",
+						"schedule"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/doctors/DOC001/schedule",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"DOC001",
+								"schedule"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"schedule\": {\n        \"doctor\": {\n            \"id\": \"DOC001\",\n            \"name\": \"Dr. Sarah Johnson\",\n            \"specialization\": \"General Medicine\"\n        },\n        \"schedule\": [\n            {\n                \"time\": \"09:00-10:00\",\n                \"capacity\": 10,\n                \"allocated\": 0,\n                \"available\": 10,\n                \"tokens\": []\n            },\n            {\n                \"time\": \"10:00-11:00\",\n                \"capacity\": 10,\n                \"allocated\": 2,\n                \"available\": 8,\n                \"tokens\": [\n                    {\n                        \"id\": \"token-uuid-456\",\n                        \"patientId\": \"P002\",\n                        \"source\": \"priority\",\n                        \"priority\": 8,\n                        \"status\": \"allocated\"\n                    },\n                    {\n                        \"id\": \"token-uuid-789\",\n                        \"patientId\": \"P005\",\n                        \"source\": \"emergency\",\n                        \"priority\": 10,\n                        \"status\": \"allocated\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "12. Get System Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/stats",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stats",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stats"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"stats\": {\n        \"totalDoctors\": 3,\n        \"totalSlots\": 24,\n        \"occupiedSlots\": 4,\n        \"totalCapacity\": 240,\n        \"allocatedTokens\": 4,\n        \"waitingQueue\": 0,\n        \"utilizationRate\": \"1.67%\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "13. Get Waiting Queue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/waiting-queue",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"waiting-queue"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response - Empty Queue",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/waiting-queue",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"waiting-queue"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"waitingQueue\": [],\n    \"count\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "14. Get Token Sources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/token-sources",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"token-sources"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/token-sources",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token-sources"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"sources\": {\n        \"EMERGENCY\": {\n            \"name\": \"emergency\",\n            \"priority\": 10\n        },\n        \"PRIORITY\": {\n            \"name\": \"priority\",\n            \"priority\": 8\n        },\n        \"FOLLOWUP\": {\n            \"name\": \"followup\",\n            \"priority\": 6\n        },\n        \"ONLINE\": {\n            \"name\": \"online\",\n            \"priority\": 4\n        },\n        \"WALKIN\": {\n            \"name\": \"walkin\",\n            \"priority\": 2\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "15. Cancel Token",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/tokens/{{token_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"{{token_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tokens/token-uuid-123",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"token-uuid-123"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Token cancelled successfully\"\n}"
+				},
+				{
+					"name": "Token Not Found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tokens/invalid-token-id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"invalid-token-id"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Token not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "16. Error Test - Invalid Doctor ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P999\",\n    \"doctorId\": \"INVALID_DOC\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"online\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patientId\": \"P999\",\n    \"doctorId\": \"INVALID_DOC\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"online\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tokens/allocate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"allocate"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"error\": \"Doctor not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "17. Error Test - Invalid Token Source",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P999\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"invalid_source\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patientId\": \"P999\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"invalid_source\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tokens/allocate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"allocate"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Invalid source. Valid sources: emergency, priority, followup, online, walkin\"\n}"
+				}
+			]
+		},
+		{
+			"name": "18. Error Test - Missing Fields",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P999\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patientId\": \"P999\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tokens/allocate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"allocate"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Missing required fields: patientId, doctorId, preferredTime, source\"\n}"
+				}
+			]
+		},
+		{
+			"name": "19. Stress Test - Fill Slot to Capacity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P{{$randomInt}}\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"11:00\",\n    \"source\": \"walkin\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			}
+		},
+		{
+			"name": "20. Test Alternative Slot Allocation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\": \"P100\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"online\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tokens/allocate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tokens",
+						"allocate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Alternative Slot Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patientId\": \"P100\",\n    \"doctorId\": \"DOC001\",\n    \"preferredTime\": \"10:00\",\n    \"source\": \"online\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tokens/allocate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tokens",
+								"allocate"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"token-uuid-alt\",\n        \"patientId\": \"P100\",\n        \"doctorId\": \"DOC001\",\n        \"slotTime\": \"11:00\",\n        \"source\": \"online\",\n        \"priority\": 4,\n        \"status\": \"allocated\",\n        \"createdAt\": \"2024-01-15T11:00:00.000Z\"\n    },\n    \"message\": \"Token allocated to alternative slot: 11:00\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token_id",
+			"value": "replace-with-actual-token-id",
+			"type": "string"
+		}
+	]
+}
